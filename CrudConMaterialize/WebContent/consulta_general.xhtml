@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<ui:composition lang="es"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      template="/plantilla.xhtml">
+
+<ui:param name="tituloPagina" value="Consulta General" />
+<ui:param name="nombreEnPagina" value="Consulta General" />
+		<ui:define name="contenido">
+				
+	 		  <div class="row">
+			<h1>User: #{loginBean.miPersonaVo.nombre}</h1>
+			    
+			    <h:form id="form">
+				    
+ 
+					    <p:dataTable id="datos" value="#{productoBean.}" var="persona">
+							<p:column headerText="ID">
+								<p:outputLabel value="#{persona.ID}"/>
+							</p:column>
+							
+							<p:column headerText="Nombre">
+					<p:outputLabel value="#{persona.nombre}"/>
+				</p:column>
+			
+				<p:column headerText="Descripcion">
+					<p:outputLabel value="#{persona.descripcion}"/>
+				</p:column>
+				
+				<p:column headerText="Tipo">
+					<p:outputLabel value="#{persona.tipo}" >
+						<f:selectItem itemLabel="TIPO A" itemValue="A"/>
+					<f:selectItem itemLabel="TIPO B" itemValue="B"/>
+					<f:selectItem itemLabel="TIPO C" itemValue="C"/>			
+					</p:outputLabel>
+				</p:column>
+				
+				<p:column headerText="Precio">
+					<p:outputLabel value="#{persona.precio}"/>
+				</p:column>
+			
+						
+						</p:dataTable> 		
+			    </h:form>
+			    
+			</div>
+		</ui:define>
+
+</ui:composition>
